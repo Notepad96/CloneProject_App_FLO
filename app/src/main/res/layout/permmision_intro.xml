@@ -1,6 +1,139 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_margin="50dp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="FLO에서는\n고객님의 원활한 서비스 이용을\n위해\n다음의 권한들을 사용합니다."
+        android:background="@color/pmTopColor"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:paddingHorizontal="30dp"
+        android:paddingVertical="8dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/pmMidColor">
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_margin="33dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="필수 접근 권한 항목"
+                        android:textColor="@color/white"
+                        android:textSize="14sp"
+                        android:textStyle="bold"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="저장 공간"
+                        android:textColor="@color/white"
+                        android:textSize="12sp"
+                        android:textStyle="bold"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/pmTextColor"
+                        android:layout_marginTop="5dp"
+                        android:textSize="12sp"
+                        android:text="고객님의 데이터 소모량 최소화를 위하여\n플레이리스트 이미지 등 컨텐츠를 저장하기 위해\n필요합니다."/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="전화"
+                        android:textColor="@color/white"
+                        android:textSize="12sp"
+                        android:textStyle="bold"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/pmTextColor"
+                        android:layout_marginTop="5dp"
+                        android:textSize="12sp"
+                        android:text="잠금화면 상태에서 음악 재생 중 전화가 왔을 때\n고객님께 알려드리기 위해 필요합니다."/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="30dp"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="선택 접근 권한 항목"
+                        android:textColor="@color/pmTopColor"
+                        android:textSize="14sp"
+                        android:textStyle="bold"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="주소록"
+                        android:textColor="@color/white"
+                        android:textSize="12sp"
+                        android:textStyle="bold"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/pmTextColor"
+                        android:layout_marginTop="5dp"
+                        android:textSize="12sp"
+                        android:text="고객님께 편의를 제공하기 위하여 T아이디\n회원가입 시 디바이스에 저장된 구글 계정을\n자동으로 불러오기 위해 필요합니다."/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="마이크"
+                        android:textColor="@color/white"
+                        android:textSize="12sp"
+                        android:textStyle="bold"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/pmTextColor"
+                        android:layout_marginTop="5dp"
+                        android:textSize="12sp"
+                        android:text="음성인식, 음악검색 서비스를 제공하기 위해\n마이크 권한이 필요합니다.\n\n선택 접근 권한은 동의하지 않으셔도 서비스\n이용이 가능하지만, 동의하지 않으실 경우 특정\n기능 사용은 제한될 수 있습니다."/>
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+
+        <Button
+            android:id="@+id/btnPerOK"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/pmTopColor"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="10dp"
+            android:text="확인"
+            android:textStyle="bold"
+            android:layout_gravity="right"/>
+
+    </LinearLayout>
+
+
+</LinearLayout>
