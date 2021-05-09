@@ -2,37 +2,79 @@ package com.example.programmersflo
 
 import android.Manifest
 import android.content.Context
+import android.content.Intent
+import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
+import kotlinx.android.synthetic.main.permmision_intro.view.*
 
 class SplashActivity : AppCompatActivity() {
     val PERMISSIONCODE = 111
 
     val requestPermissionms = arrayOf(
-            Manifest.permission.CAMERA,
             Manifest.permission.READ_EXTERNAL_STORAGE,
-            Manifest.permission.ACCESS_FINE_LOCATION
+            Manifest.permission.WRITE_EXTERNAL_STORAGE,
+            Manifest.permission.MANAGE_OWN_CALLS
     )
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
+
+        var rejectedPermissionList = ArrayList<String>()
+
+        for(permission in requestPermissionms) {
+            if(ContextCompat.checkSelfPermission(this, permission) != PackageManager.PERMISSION_GRANTED) {
+                rejectedPermissionList.add(permission)
+            }
+        }
+
+        if(rejectedPermissionList.isNotEmpty()) {
+            customDialog(applicationContext, R.layout.permmision_intro)
+            val arr = arrayOfNulls<String>(rejectedPermissionList.size)
+            ActivityCompat.requestPermissions(this, rejectedPermissionList.toArray(arr), PERMISSIONCODE)
+        } else {
+            val intent = Intent(applicationContext, MainActivity::class.java)
+            startActivity(intent)
+        }
     }
 
-    fun cuDialog(context: Context) {
-        val myLayout = layoutInflater.inflate(R.layout.custom_dialog, null)
+
+
+    fun customDialog(context: Context, layout: Int) {
+        val myLayout = layoutInflater.inflate(layout, null)
         val build = AlertDialog.Builder(context).apply {
             setView(myLayout)
         }
         val dialog = build.create()
         dialog.show()
 
-//        myLayout.okBtn.setOnClickListener {
-//            dialog.dismiss()
-//        }
+        myLayout.btnPerOK.setOnClickListener {
+            dialog.dismiss()
+        }
     }
+
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+        when(requestCode) {
+            PERMISSIONCODE -> {
+                if (grantResults.isNotEmpty()) {
+                    for ((i, permission) in permissions.withIndex()) {
+
+                        if (grantResults[i] == PackageManager.PERMISSION_DENIED) {
+                            Log.d("Msg", "$permission Denied")
+                            customDialog(applicationContext, R.layout.permmision_deny)
+                        }
+                    }
+                }
+            }
+        }
+    }
+
 }
