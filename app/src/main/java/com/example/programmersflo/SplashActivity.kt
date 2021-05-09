@@ -4,18 +4,19 @@ import android.Manifest
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
-import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import kotlinx.android.synthetic.main.permmision_intro.view.*
 
 class SplashActivity : AppCompatActivity() {
     val PERMISSIONCODE = 111
+    private val DELAY_TIME = 1500L
+
 
     val requestPermissionms = arrayOf(
             Manifest.permission.READ_EXTERNAL_STORAGE,
@@ -37,20 +38,21 @@ class SplashActivity : AppCompatActivity() {
         }
 
         if(rejectedPermissionList.isNotEmpty()) {
-            customDialog(applicationContext, R.layout.permmision_intro)
+            customDialog()
             val arr = arrayOfNulls<String>(rejectedPermissionList.size)
             ActivityCompat.requestPermissions(this, rejectedPermissionList.toArray(arr), PERMISSIONCODE)
         } else {
             val intent = Intent(applicationContext, MainActivity::class.java)
             startActivity(intent)
         }
+
     }
 
 
 
-    fun customDialog(context: Context, layout: Int) {
-        val myLayout = layoutInflater.inflate(layout, null)
-        val build = AlertDialog.Builder(context).apply {
+    fun customDialog() {
+        val myLayout = layoutInflater.inflate(R.layout.permmision_intro, null)
+        val build = AlertDialog.Builder(baseContext).apply {
             setView(myLayout)
         }
         val dialog = build.create()
@@ -69,9 +71,15 @@ class SplashActivity : AppCompatActivity() {
 
                         if (grantResults[i] == PackageManager.PERMISSION_DENIED) {
                             Log.d("Msg", "$permission Denied")
-                            customDialog(applicationContext, R.layout.permmision_deny)
+                            customDialog()
                         }
                     }
+                }
+                else {
+                    Handler().postDelayed( {
+                        startActivity(Intent(this, MainActivity::class.java))
+                        finish()
+                    } , DELAY_TIME)
                 }
             }
         }
