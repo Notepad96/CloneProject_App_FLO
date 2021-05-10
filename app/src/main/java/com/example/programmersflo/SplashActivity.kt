@@ -38,7 +38,7 @@ class SplashActivity : AppCompatActivity() {
         }
 
         if(rejectedPermissionList.isNotEmpty()) {
-            customDialog()
+            introDialog()
             val arr = arrayOfNulls<String>(rejectedPermissionList.size)
             ActivityCompat.requestPermissions(this, rejectedPermissionList.toArray(arr), PERMISSIONCODE)
         } else {
@@ -50,9 +50,9 @@ class SplashActivity : AppCompatActivity() {
 
 
 
-    fun customDialog() {
+    fun introDialog() {
         val myLayout = layoutInflater.inflate(R.layout.permmision_intro, null)
-        val build = AlertDialog.Builder(baseContext).apply {
+        val build = AlertDialog.Builder(applicationContext).apply {
             setView(myLayout)
         }
         val dialog = build.create()
@@ -71,7 +71,7 @@ class SplashActivity : AppCompatActivity() {
 
                         if (grantResults[i] == PackageManager.PERMISSION_DENIED) {
                             Log.d("Msg", "$permission Denied")
-                            customDialog()
+                            introDialog()
                         }
                     }
                 }
