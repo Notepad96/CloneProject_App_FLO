@@ -38,15 +38,20 @@ class SplashActivity : AppCompatActivity() {
             }
         }
 
-        if(rejectedPermissionList.isNotEmpty()) {
+        if(rejectedPermissionList.size != 0) {
             introDialog(R.layout.permmision_intro)
         } else {
-            val intent = Intent(applicationContext, MainActivity::class.java)
-            startActivity(intent)
+            splashView()
         }
 
     }
 
+    private fun splashView() {
+        Handler().postDelayed({
+            startActivity(Intent(this, MainActivity::class.java))
+            finish()
+        }, DELAY_TIME)
+    }
 
     fun introDialog(layout_id: Int) {
         val myLayout = layoutInflater.inflate(layout_id, null)
@@ -81,12 +86,8 @@ class SplashActivity : AppCompatActivity() {
                             introDialog(R.layout.permmision_deny)
                         }
                     }
-                }
-                else {
-                    Handler().postDelayed( {
-                        startActivity(Intent(this, MainActivity::class.java))
-                        finish()
-                    } , DELAY_TIME)
+                } else {
+                    splashView()
                 }
             }
         }
