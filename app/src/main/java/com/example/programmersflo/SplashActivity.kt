@@ -80,13 +80,11 @@ class SplashActivity : AppCompatActivity() {
             PERMISSIONCODE -> {
                 if (grantResults.isNotEmpty()) {
                     for ((i, permission) in permissions.withIndex()) {
-
                         if (grantResults[i] == PackageManager.PERMISSION_DENIED) {
                             Log.d("Msg", "$permission Denied")
                             introDialog(R.layout.permmision_deny)
                         }
                     }
-                } else {
                     splashView()
                 }
             }
