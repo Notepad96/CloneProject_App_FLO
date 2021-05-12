@@ -23,8 +23,7 @@ class SplashActivity : AppCompatActivity() {
 
     val requestPermissionms = arrayOf(
             Manifest.permission.READ_EXTERNAL_STORAGE,
-            Manifest.permission.WRITE_EXTERNAL_STORAGE,
-            Manifest.permission.MANAGE_OWN_CALLS
+            Manifest.permission.READ_CONTACTS
     )
     var rejectedPermissionList = ArrayList<String>()
 

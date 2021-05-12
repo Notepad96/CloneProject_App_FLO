@@ -12,4 +12,6 @@
     <color name="pmMidColor">#151515</color>
     <color name="pmTextColor">#737373</color>
 
+    <color name="toastBoxColor">#131211</color>
+
 </resources>
