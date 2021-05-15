@@ -8,9 +8,11 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="pmTopColor">#2732FF</color>
-    <color name="pmMidColor">#151515</color>
-    <color name="pmTextColor">#737373</color>
+    <color name="main">#2732FF</color>
+    <color name="mainBackground">#151515</color>
+    <color name="subText">#737373</color>
+
+    <color name="secBackground">#222222</color>
 
     <color name="toastBoxColor">#131211</color>
 

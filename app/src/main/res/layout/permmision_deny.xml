@@ -4,7 +4,7 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:layout_margin="40dp"
-    android:background="@color/pmMidColor"
+    android:background="@color/mainBackground"
     android:layout_gravity="center">
 
     <TextView
@@ -27,7 +27,7 @@
         android:layout_marginBottom="10dp"
         android:layout_marginRight="10dp"
         android:textStyle="bold"
-        android:textColor="@color/pmTopColor"
+        android:textColor="@color/main"
         android:text="종료" />
 
 </LinearLayout>

@@ -16,22 +16,28 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@id/mainNavigationView"
+        android:background="@color/mainBackground"
         android:orientation="vertical">
 
         <SeekBar
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:alpha="0"
+            android:layout_height="5dp"
+            android:paddingStart="-2dp"
+            android:paddingEnd="-2dp"
             android:splitTrack="false"
-            android:progress="0"
+            android:progress="30"
+            android:thumbOffset="3dp"
+
+            android:progressDrawable="@drawable/sekbar_skin"
+            android:thumb="@drawable/sekbar_thum"
             />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:paddingVertical="3dp"
+            android:paddingVertical="2dp"
             android:layout_gravity="center"
-            android:background="@color/pmMidColor"
+            android:background="@color/mainBackground"
             android:orientation="horizontal">
 
             <LinearLayout
@@ -51,7 +57,7 @@
                     android:id="@+id/txt_play_artist"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/pmTextColor"
+                    android:textColor="@color/subText"
                     android:textSize="14sp"
                     android:text="Artist"/>
             </LinearLayout>
