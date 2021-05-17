@@ -18,21 +18,23 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         setContentView(R.layout.activity_main)
 
         mainNavigationView.setOnNavigationItemSelectedListener(this)
+
+        supportFragmentManager.beginTransaction().replace(R.id.mainLayout, FirstPage()).commit()
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when(item.itemId) {
             R.id.menu_home -> {
-
+                supportFragmentManager.beginTransaction().replace(R.id.mainLayout, FirstPage()).commit()
             }
             R.id.menu_music -> {
-
+                supportFragmentManager.beginTransaction().replace(R.id.mainLayout, SecPage()).commit()
             }
             R.id.menu_search -> {
-
+                supportFragmentManager.beginTransaction().replace(R.id.mainLayout, TrdPage()).commit()
             }
             R.id.menu_user -> {
-
+                supportFragmentManager.beginTransaction().replace(R.id.mainLayout, ForPage()).commit()
             }
         }
         return true
