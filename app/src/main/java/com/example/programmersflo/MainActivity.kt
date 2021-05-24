@@ -1,13 +1,10 @@
 package com.example.programmersflo
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Gravity
 import android.view.MenuItem
-import android.view.View
 import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
-import com.google.android.material.bottomnavigation.BottomNavigationMenuView
+import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.exit_toast_box.*
@@ -20,6 +17,7 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         mainNavigationView.setOnNavigationItemSelectedListener(this)
 
         supportFragmentManager.beginTransaction().replace(R.id.mainLayout, FirstPage()).commit()
+
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {

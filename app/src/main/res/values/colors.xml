@@ -16,4 +16,6 @@
 
     <color name="toastBoxColor">#131211</color>
 
+    <color name="unSelected">#131311</color>
+    <color name="selected">#2732FF</color>
 </resources>
