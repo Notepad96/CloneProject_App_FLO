@@ -48,7 +48,7 @@
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                app:title="Hello Test~~"
+                app:title="Hello Test~"
                 app:titleTextColor="@color/white"
                 app:layout_collapseMode="pin"/>
 
