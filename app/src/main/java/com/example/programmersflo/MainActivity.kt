@@ -5,6 +5,10 @@ import android.view.Gravity
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.programmersflo.mainview.FirstPage
+import com.example.programmersflo.mainview.ForPage
+import com.example.programmersflo.mainview.SecPage
+import com.example.programmersflo.mainview.TrdPage
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.exit_toast_box.*
