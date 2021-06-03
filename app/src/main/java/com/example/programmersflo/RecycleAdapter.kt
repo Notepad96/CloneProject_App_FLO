@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import coil.load
 import kotlinx.android.synthetic.main.list_item_small.view.*
 
 class RecycleAdapter : RecyclerView.Adapter<RecycleAdapter.MyViewHolder>() {
@@ -20,7 +21,10 @@ class RecycleAdapter : RecyclerView.Adapter<RecycleAdapter.MyViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        holder.layout.list_image_item.setBackgroundResource(imgList[position])
+        holder.layout.list_image_item.load(imgList[position])
+        holder.layout.list_image_item.setBackgroundResource(R.drawable.box_rounded)
+        holder.layout.list_image_item.clipToOutline = true
+
         holder.layout.list_text_item.text = textList[position]
     }
 
