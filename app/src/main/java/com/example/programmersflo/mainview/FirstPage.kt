@@ -1,5 +1,6 @@
 package com.example.programmersflo.mainview
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Context
 import android.os.Bundle
@@ -17,22 +18,31 @@ import kotlinx.android.synthetic.main.fragment_first_page.view.*
 
 class FirstPage : Fragment() {
 
-    private lateinit var recyclerView: RecyclerView
-    private lateinit var viewAdapter: RecyclerView.Adapter<*>
-    private lateinit var viewManager: LinearLayoutManager
+    private var recyclerView: MutableList<RecyclerView> = mutableListOf()
+    private var viewAdapter: MutableList<RecyclerView.Adapter<*>> = mutableListOf()
+    private var viewManager: MutableList<LinearLayoutManager> = mutableListOf()
 
+    @SuppressLint("WrongConstant")
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         val view  = inflater.inflate(R.layout.fragment_first_page, container, false)
 
-        viewManager = LinearLayoutManager(requireContext())
-        viewManager.orientation = LinearLayout.HORIZONTAL
-        viewAdapter = RecycleAdapter()
+        for(i in 0..2) {
+            viewManager.add(LinearLayoutManager(requireContext()))
+            viewManager[i].orientation = LinearLayout.HORIZONTAL
+            viewAdapter.add(RecycleAdapter())
 
-        recyclerView = view.recycleTest.apply {
-            setHasFixedSize(true)
-            layoutManager= viewManager
-            adapter = viewAdapter
+            var list = when(i) {
+                0 -> view.smallList
+                1 -> view.smallList2
+                else -> view.smallList3
+            }
+            recyclerView.add(list)
+            recyclerView[i].apply {
+                setHasFixedSize(true)
+                layoutManager = viewManager[i]
+                adapter = viewAdapter[i]
+            }
         }
 
         return view

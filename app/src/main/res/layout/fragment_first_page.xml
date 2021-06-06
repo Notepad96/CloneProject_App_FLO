@@ -3,27 +3,72 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".mainview.FirstPage">
+    tools:context=".mainview.FirstPage"
+    android:layout_marginTop="20dp"
+    android:layout_marginBottom="180dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:text="오늘을 기억해"
-            android:textColor="@color/white"
-            android:textSize="24dp"
-            android:layout_marginLeft="7dp"
-            />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycleTest"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:text="오늘을 기억해"
+                android:textColor="@color/white"
+                android:textSize="24dp"
+                android:layout_marginLeft="7dp"
+                />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/smallList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:text="오늘을 기억해"
+                android:textColor="@color/white"
+                android:textSize="24dp"
+                android:layout_marginLeft="7dp"
+                />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/smallList2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:text="오늘을 기억해"
+                android:textColor="@color/white"
+                android:textSize="24dp"
+                android:layout_marginLeft="7dp"
+                />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/smallList3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
     </LinearLayout>
+
 
 
 </androidx.core.widget.NestedScrollView>
