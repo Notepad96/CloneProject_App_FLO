@@ -5,11 +5,25 @@
     android:layout_height="match_parent"
     tools:context=".mainview.FirstPage">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycleTest"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:text="오늘을 기억해"
+            android:textColor="@color/white"
+            android:textSize="24dp"
+            android:layout_marginLeft="7dp"
+            />
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycleTest"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
 
 
 </androidx.core.widget.NestedScrollView>
