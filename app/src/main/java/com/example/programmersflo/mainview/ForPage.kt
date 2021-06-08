@@ -16,14 +16,10 @@ class ForPage : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        val view: View = inflater.inflate(R.layout.fragment_for_page, container, false)
 
-        val layout: View = inflater.inflate(R.layout.fragment_for_page, container, false)
 
-        val tb = (activity as MainActivity).supportActionBar
-        (activity as MainActivity).setSupportActionBar(toolbar)
-        if(tb != null) tb?.setDisplayHomeAsUpEnabled(false)
-
-        return layout
+        return view
     }
 
 }

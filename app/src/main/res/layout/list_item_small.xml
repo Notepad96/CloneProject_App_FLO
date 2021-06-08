@@ -9,7 +9,6 @@
         <ImageView
             android:id="@+id/list_image_item"
             android:scaleType="fitXY"
-            android:background="@drawable/image_radius"
             android:src="@drawable/img4"
             android:layout_width="150dp"
             android:layout_height="150dp"/>
