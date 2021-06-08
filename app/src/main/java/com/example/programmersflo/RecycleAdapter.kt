@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import kotlinx.android.synthetic.main.list_item_small.view.*
+import kotlin.math.round
 
 class RecycleAdapter : RecyclerView.Adapter<RecycleAdapter.MyViewHolder>() {
     var imgList = listOf<Int>( R.drawable.img1, R.drawable.img2, R.drawable.img3, R.drawable.img4, R.drawable.img5 )
@@ -21,7 +22,9 @@ class RecycleAdapter : RecyclerView.Adapter<RecycleAdapter.MyViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        holder.layout.list_image_item.load(imgList[position])
+        holder.layout.list_image_item.load(imgList[position]).let {
+            round(20.0)
+        }
         holder.layout.list_image_item.setBackgroundResource(R.drawable.box_rounded)
         holder.layout.list_image_item.clipToOutline = true
 
